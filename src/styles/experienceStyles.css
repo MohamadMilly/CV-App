@@ -1,0 +1,32 @@
+:root {
+  --section-background: rgb(29, 25, 25);
+  --inputs-hover: rgb(240, 233, 233);
+  --inputs-focus: rgb(66, 63, 231);
+}
+
+.experience-info-section {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  background-color: rgba(29, 25, 25);
+}
+.experience-info-section > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+.experience-info-section > div > input {
+  padding: 5px;
+  outline: none;
+  border-radius: 2px;
+  border: none;
+}
+.experience-info-section > div > input:hover {
+  background-color: var(--inputs-hover);
+}
+.experience-info-section > div > input:focus {
+  outline: 3px solid var(--inputs-focus);
+}
