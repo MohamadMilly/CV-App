@@ -1,5 +1,5 @@
 :root {
-  --section-background: rgb(29, 25, 25);
+  --section-background: rgb(20, 20, 20);
   --inputs-hover: rgb(240, 233, 233);
   --inputs-focus: rgb(66, 63, 231);
 }
@@ -10,7 +10,7 @@
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  background-color: rgba(29, 25, 25);
+  background-color: var(--section-background);
 }
 .practical-info-section > div {
   display: flex;

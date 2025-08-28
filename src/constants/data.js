@@ -1,20 +1,20 @@
 const personalData = {
-  name: "",
-  age: "",
-  phoneNumber: "",
-  email: "",
+  name: "Mohammed",
+  age: "17",
+  phoneNumber: "0937190284",
+  email: "millymohammed2@gmail.com",
 };
 const experienceData = {
-  schoolName: "",
-  titleOfStudy: "",
-  dateOfStudy: "",
+  schoolName: "Al Thuryia",
+  titleOfStudy: "Student",
+  dateOfStudy: "2025-9-21",
 };
 const practicalData = {
-  companyName: "",
-  positionTitle: "",
-  mainResponsibilities: "",
-  dateFrom: "",
-  dateTo: "",
+  companyName: "(No company yet)",
+  positionTitle: "Maybe a developer",
+  mainResponsibilities: "Building full-stack apps",
+  dateFrom: "2025-3-0",
+  dateTo: "2025-9-0",
 };
 const cvStructure = {
   ...personalData,

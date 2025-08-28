@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
 :root {
-  --App-background: rgb(18, 14, 14);
+  --App-background: #080808;
   --text-color: #f8f4ec;
-  --button-background: rgb(63, 59, 59);
-  --button-background-hover: rgb(72, 70, 70);
+  --button-background: #292827;
+  --button-background-hover: #484547;
   --button-focus: rgb(66, 63, 231);
-  --CV-sections-background: rgb(62, 60, 60);
-  --CV-background-color: rgb(43, 41, 41);
+  --CV-sections-background: #292827;
+  --CV-background-color: #1a1819;
 }
 #root {
   width: 100%;
@@ -41,6 +41,7 @@ form > button,
   border: none;
   font-weight: 600;
   border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
 }
 .app-title {
   margin-bottom: 10px;
@@ -82,14 +83,25 @@ form > button:focus,
   display: grid;
   place-content: center;
   text-align: center;
-  background-color: rgb(62, 60, 60);
+  background-color: var(--CV-sections-background);
   border-radius: 5px;
   padding: 15px 5px;
+}
+label::after {
+  content: "*";
+  color: red;
+  margin-left: 2px;
+}
+.experience-cv > h2,
+.practical-cv > h2 {
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
 .experience-cv > ul,
 .practical-cv > ul {
   list-style-type: none;
 }
+
 .practical-cv > h3 {
   text-align: center;
   font-size: 18px;
@@ -119,6 +131,7 @@ form > button:focus,
   .experience-cv > h2,
   .practical-cv > h2 {
     text-align: center;
+    margin-left: 0;
   }
   .personal-cv {
     grid-template-rows: repeat(4, 1fr);
