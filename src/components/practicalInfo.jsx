@@ -13,6 +13,7 @@ function PracticalSection({ data, onChange }) {
       <div>
         <label>Company name</label>
         <input
+          required
           value={companyNameValue}
           type="text"
           onChange={(e) => onChange(e, "companyName")}
@@ -21,6 +22,7 @@ function PracticalSection({ data, onChange }) {
       <div>
         <label>Position title</label>
         <input
+          required
           value={positionValue}
           type="text"
           onChange={(e) => onChange(e, "positionTitle")}
@@ -29,6 +31,7 @@ function PracticalSection({ data, onChange }) {
       <div>
         <label>Main responsibilities</label>
         <input
+          required
           value={responsibilitiesValue}
           type="text"
           onChange={(e) => onChange(e, "mainResponsibilities")}
@@ -37,6 +40,7 @@ function PracticalSection({ data, onChange }) {
       <div>
         <label>Date from you worked</label>
         <input
+          required
           value={dateFromValue}
           type="date"
           onChange={(e) => onChange(e, "dateFrom")}
@@ -45,6 +49,7 @@ function PracticalSection({ data, onChange }) {
       <div>
         <label>Date to you worked</label>
         <input
+          required
           value={dateToValue}
           type="date"
           onChange={(e) => onChange(e, "dateTo")}

@@ -10,6 +10,7 @@ function ExperienceSection({ data, onChange }) {
       <div>
         <label>School name</label>
         <input
+          required
           value={schoolNameValue}
           type="text"
           onChange={(e) => onChange(e, "schoolName")}
@@ -18,6 +19,7 @@ function ExperienceSection({ data, onChange }) {
       <div>
         <label>Title of study</label>
         <input
+          required
           value={titleOfStudyValue}
           type="text"
           onChange={(e) => onChange(e, "titleOfStudy")}
@@ -26,6 +28,7 @@ function ExperienceSection({ data, onChange }) {
       <div>
         <label>Date of study</label>
         <input
+          required
           value={DateOfStudyValue}
           type="date"
           onChange={(e) => onChange(e, "dateOfStudy")}

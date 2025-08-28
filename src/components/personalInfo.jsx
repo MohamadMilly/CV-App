@@ -11,6 +11,7 @@ function PersonalSection({ data, onChange }) {
       <div>
         <label>Name</label>
         <input
+          required
           value={nameValue}
           type="text"
           onChange={(e) => onChange(e, "name")}
@@ -19,6 +20,9 @@ function PersonalSection({ data, onChange }) {
       <div>
         <label>Age</label>
         <input
+          required
+          max={100}
+          min={17}
           value={ageValue}
           type="number"
           onChange={(e) => onChange(e, "age")}
@@ -27,14 +31,17 @@ function PersonalSection({ data, onChange }) {
       <div>
         <label>Phone number</label>
         <input
+          required
+          pattern="^\d{10}$"
+          type="tel"
           value={phoneNumberValue}
-          type="number"
           onChange={(e) => onChange(e, "phoneNumber")}
         />
       </div>
       <div>
         <label>Email</label>
         <input
+          required
           value={emailValue}
           type="email"
           onChange={(e) => onChange(e, "email")}
