@@ -8,6 +8,7 @@
 /* 2. Remove default margin */
 * {
   margin: 0;
+  word-break: break-all;
 }
 
 /* 3. Enable keyword animations */
@@ -49,8 +50,10 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+li {
   overflow-wrap: break-word;
+  word-break: break-all;
 }
 
 /* 9. Improve line wrapping */

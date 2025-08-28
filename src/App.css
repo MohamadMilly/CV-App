@@ -74,7 +74,7 @@ form > button:focus,
 }
 .personal-cv {
   display: grid;
-  grid-template-rows: 1fr 30px;
+  grid-template-rows: 4fr 1fr;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
@@ -85,6 +85,7 @@ form > button:focus,
   background-color: rgb(62, 60, 60);
   border-radius: 5px;
   padding: 15px 5px;
+  flex-wrap: wrap;
 }
 .experience-cv > ul,
 .practical-cv > ul {
@@ -127,6 +128,6 @@ form > button:focus,
   .personal-cv {
     grid-template-rows: repeat(4, 1fr);
     grid-template-columns: 1fr;
-    min-height: 250px;
+    min-height: 300px;
   }
 }
