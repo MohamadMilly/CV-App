@@ -6,7 +6,7 @@ const inputs = [
   {
     title: "Phone number",
     type: "tel",
-    pattern: "/^\d{10}$/",
+    pattern: "^[0-9]{10}$",
     inputKey: "phoneNumber",
   },
   { title: "Email", type: "email", inputKey: "email" },
