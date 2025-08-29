@@ -197,4 +197,7 @@ hr {
     grid-template-columns: 1fr;
     min-height: 300px;
   }
+  .practical-info-section .add-button {
+    position: static;
+  }
 }

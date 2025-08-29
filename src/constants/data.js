@@ -11,7 +11,7 @@ const experienceData = {
 };
 const practicalData = [
   {
-    id: 0,
+    id: crypto.randomUUID(),
     companyName: "(No company yet)",
     positionTitle: "Maybe a developer",
     mainResponsibilities: "Building full-stack apps",

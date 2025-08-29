@@ -40,6 +40,31 @@ function CVApp() {
     });
     setInputsValues({ ...inputsValues, practical: newPracticalInfo });
   };
+
+  const handleAddClick = () => {
+    setInputsValues({
+      ...inputsValues,
+      practical: [
+        ...inputsValues.practical,
+        {
+          id: crypto.randomUUID(),
+          companyName: "",
+          positionTitle: "",
+          mainResponsibilities: "",
+          dateFrom: "",
+          dateTo: "",
+        },
+      ],
+    });
+  };
+  const handleDeleteClick = (id) => {
+    setInputsValues({
+      ...inputsValues,
+      practical: inputsValues.practical.filter(
+        (practicalUnitData) => practicalUnitData.id !== id
+      ),
+    });
+  };
   if (isFinished) {
     return (
       <>
@@ -122,10 +147,14 @@ function CVApp() {
         />
         {inputsValues.practical.map((practicalUnitData, index) => (
           <PracticalSection
-            id={index}
+            isFirst={index === 0 ? true : false}
+            id={practicalUnitData.id}
             key={practicalUnitData.id}
             data={practicalUnitData}
             onChange={handlePracDataChange}
+            handleAddClick={handleAddClick}
+            handleDeleteClick={handleDeleteClick}
+            pracSectionsNumber={inputsValues.practical.length}
           />
         ))}
         <button type="submit">Submit</button>
