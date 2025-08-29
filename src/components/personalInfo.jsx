@@ -6,7 +6,7 @@ const inputs = [
   {
     title: "Phone number",
     type: "tel",
-    pattern: "[/d{10}$/]",
+    pattern: "/^\d{10}$/",
     inputKey: "phoneNumber",
   },
   { title: "Email", type: "email", inputKey: "email" },
@@ -21,7 +21,7 @@ function PersonalSection({ data, onChange }) {
           key={input.title}
           {...input}
           value={data[input.inputKey]}
-          onChange={(e) => onChange(e, inputs.inputKey)}
+          onChange={(e) => onChange(e, input.inputKey)}
         />
       ))}
     </div>
