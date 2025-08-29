@@ -1,39 +1,23 @@
 import "../styles/experienceStyles.css";
+import { InputField } from "./utilitys.jsx";
+
+const inputs = [
+  { title: "School name", type: "text", inputKey: "schoolName" },
+  { title: "Title of study", type: "text", inputKey: "titleOfStudy" },
+  { title: "Date of study", type: "date", inputKey: "dateOfStudy" },
+];
 
 function ExperienceSection({ data, onChange }) {
-  const schoolNameValue = data.schoolName;
-  const titleOfStudyValue = data.titleOfStudy;
-  const DateOfStudyValue = data.dateOfStudy;
   return (
     <div className="experience-info-section">
       <h2>Experience</h2>
-      <div>
-        <label>School name</label>
-        <input
-          required
-          value={schoolNameValue}
-          type="text"
-          onChange={(e) => onChange(e, "schoolName")}
+      {inputs.map((input) => (
+        <InputField
+          {...input}
+          value={data[input.inputKey]}
+          onChange={onChange}
         />
-      </div>
-      <div>
-        <label>Title of study</label>
-        <input
-          required
-          value={titleOfStudyValue}
-          type="text"
-          onChange={(e) => onChange(e, "titleOfStudy")}
-        />
-      </div>
-      <div>
-        <label>Date of study</label>
-        <input
-          required
-          value={DateOfStudyValue}
-          type="date"
-          onChange={(e) => onChange(e, "dateOfStudy")}
-        />
-      </div>
+      ))}
     </div>
   );
 }

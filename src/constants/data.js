@@ -7,14 +7,14 @@ const personalData = {
 const experienceData = {
   schoolName: "Al Thuryia",
   titleOfStudy: "Student",
-  dateOfStudy: "2025-9-21",
+  dateOfStudy: "2025-09-21",
 };
 const practicalData = {
   companyName: "(No company yet)",
   positionTitle: "Maybe a developer",
   mainResponsibilities: "Building full-stack apps",
-  dateFrom: "2025-3-0",
-  dateTo: "2025-9-0",
+  dateFrom: "2025-03-21",
+  dateTo: "2025-09-30",
 };
 const cvStructure = {
   ...personalData,

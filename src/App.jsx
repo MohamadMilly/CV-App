@@ -5,15 +5,22 @@ import { PracticalSection } from "./components/practicalInfo.jsx";
 import { cvStructure } from "./constants/data.js";
 import { useState } from "react";
 import html2pdf from "html2pdf.js";
+import { Loader } from "./components/utilitys.jsx";
+
 function CVApp() {
   const [status, setStatus] = useState("Typing");
   const [inputsValues, setInputsValues] = useState(cvStructure);
 
   const isSubmitting = status === "Submitting";
   const isFinished = status === "Finished";
+
   const handleDownload = (name) => {
     const CVContainer = document.querySelector(".CV-container");
-    html2pdf().from(CVContainer).save(`${name}-CV.pdf`);
+    const clone = CVContainer.cloneNode(true);
+    clone.classList.add("no-animation");
+    document.body.appendChild(clone);
+    html2pdf().from(clone).save(`${name}-CV.pdf`);
+    document.body.removeChild(clone);
   };
   const handleDataChange = (e, key) => {
     setInputsValues({
@@ -90,9 +97,7 @@ function CVApp() {
         <PracticalSection data={inputsValues} onChange={handleDataChange} />
         <button type="submit">Submit</button>
       </form>
-      {isSubmitting && (
-        <span className="generating-loader">Generating... Please wait</span>
-      )}
+      {isSubmitting && <Loader />}
     </div>
   );
 

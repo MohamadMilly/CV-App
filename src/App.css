@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   padding: 2rem 1rem;
+  position: relative;
 }
 body {
   background-color: var(--App-background);
@@ -57,6 +58,9 @@ form > button:focus,
   outline: 3px solid var(--button-focus);
 }
 
+.no-animation {
+  animation: none !important;
+}
 .CV-container {
   min-height: 100vh;
   background-image: linear-gradient(
@@ -71,7 +75,7 @@ form > button:focus,
   gap: 20px;
   margin-bottom: 42px;
   border: 2px solid #f8f4ec;
-  animation: slide 650ms ease-out;
+  animation: slide 500ms ease-out;
 }
 
 .experience-cv,
@@ -115,12 +119,26 @@ label::after {
   font-weight: 500;
   margin-top: 20px;
 }
+
 @keyframes slide {
   from {
-    transform: translateX(-100vw);
+    transform: translateX(-50vw);
+    opacity: 0;
   }
   to {
     transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes spinning {
+  from {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 @media (min-width: 700px) {
@@ -141,6 +159,28 @@ hr {
   border: none;
   border-top: 2px dashed #f8f4ec;
 }
+.loader-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #070707a4;
+  backdrop-filter: blur(20px);
+}
+.loader {
+  width: 50px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 5px solid #484547;
+  border-top-color: #f8f4ec;
+  animation: spinning 1s infinite ease-in-out;
+}
+
 @media (min-width: 1000px) {
   .CV-container {
     width: 800px;
