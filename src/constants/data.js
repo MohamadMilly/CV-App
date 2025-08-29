@@ -9,16 +9,20 @@ const experienceData = {
   titleOfStudy: "Student",
   dateOfStudy: "2025-09-21",
 };
-const practicalData = {
-  companyName: "(No company yet)",
-  positionTitle: "Maybe a developer",
-  mainResponsibilities: "Building full-stack apps",
-  dateFrom: "2025-03-21",
-  dateTo: "2025-09-30",
-};
+const practicalData = [
+  {
+    id: 0,
+    companyName: "(No company yet)",
+    positionTitle: "Maybe a developer",
+    mainResponsibilities: "Building full-stack apps",
+    dateFrom: "2025-03-21",
+    dateTo: "2025-09-30",
+  },
+];
 const cvStructure = {
   ...personalData,
   ...experienceData,
-  ...practicalData,
+  practical: practicalData,
 };
+
 export { cvStructure };

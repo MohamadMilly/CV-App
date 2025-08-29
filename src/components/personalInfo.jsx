@@ -18,9 +18,10 @@ function PersonalSection({ data, onChange }) {
       <h2>Personal information</h2>
       {inputs.map((input) => (
         <InputField
+          key={input.title}
           {...input}
           value={data[input.inputKey]}
-          onChange={onChange}
+          onChange={(e) => onChange(e, inputs.inputKey)}
         />
       ))}
     </div>

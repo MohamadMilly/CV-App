@@ -13,15 +13,16 @@ const inputs = [
   { title: "Date to you worked", type: "date", inputKey: "dateTo" },
 ];
 
-function PracticalSection({ data, onChange }) {
+function PracticalSection({ id, data, onChange }) {
   return (
     <div className="practical-info-section">
       <h2>Practical information</h2>
       {inputs.map((input) => (
         <InputField
+          key={input.title}
           {...input}
           value={data[input.inputKey]}
-          onChange={onChange}
+          onChange={(e) => onChange(id, e, input.inputKey)}
         />
       ))}
     </div>

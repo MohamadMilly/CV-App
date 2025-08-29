@@ -22,13 +22,24 @@ function CVApp() {
     html2pdf().from(clone).save(`${name}-CV.pdf`);
     document.body.removeChild(clone);
   };
-  const handleDataChange = (e, key) => {
+
+  const handlePerExpDataChange = (e, key) => {
     setInputsValues({
       ...inputsValues,
       [key]: e.target.value,
     });
   };
-
+  const handlePracDataChange = (id, e, key) => {
+    const practicalInfo = inputsValues.practical;
+    const newPracticalInfo = practicalInfo.map((practicalUnitData) => {
+      if (id === practicalUnitData.id) {
+        return { ...practicalUnitData, [key]: e.target.value };
+      } else {
+        return practicalUnitData;
+      }
+    });
+    setInputsValues({ ...inputsValues, practical: newPracticalInfo });
+  };
   if (isFinished) {
     return (
       <>
@@ -53,16 +64,25 @@ function CVApp() {
           <div>
             <div className="practical-cv">
               <h2>Practical experience</h2>
-              <ul>
-                <li>Company name: {inputsValues.companyName}</li>
-                <li>Position: {inputsValues.positionTitle}</li>
-                <li>Responsibilities: {inputsValues.mainResponsibilities}</li>
-              </ul>
+              {inputsValues.practical.map((practicalUnitData) => {
+                return (
+                  <>
+                    <ul>
+                      <li>Company name: {practicalUnitData.companyName}</li>
+                      <li>Position: {practicalUnitData.positionTitle}</li>
+                      <li>
+                        Responsibilities:{" "}
+                        {practicalUnitData.mainResponsibilities}
+                      </li>
+                    </ul>
 
-              <h3>
-                From {inputsValues.dateFrom} To {inputsValues.dateTo} of
-                Experience
-              </h3>
+                    <h3>
+                      From {practicalUnitData.dateFrom} To{" "}
+                      {practicalUnitData.dateTo} of Experience
+                    </h3>
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -92,9 +112,22 @@ function CVApp() {
           setStatus("Finished");
         }}
       >
-        <PersonalSection data={inputsValues} onChange={handleDataChange} />
-        <ExperienceSection data={inputsValues} onChange={handleDataChange} />
-        <PracticalSection data={inputsValues} onChange={handleDataChange} />
+        <PersonalSection
+          data={inputsValues}
+          onChange={handlePerExpDataChange}
+        />
+        <ExperienceSection
+          data={inputsValues}
+          onChange={handlePerExpDataChange}
+        />
+        {inputsValues.practical.map((practicalUnitData, index) => (
+          <PracticalSection
+            id={index}
+            key={practicalUnitData.id}
+            data={practicalUnitData}
+            onChange={handlePracDataChange}
+          />
+        ))}
         <button type="submit">Submit</button>
       </form>
       {isSubmitting && <Loader />}

@@ -13,9 +13,10 @@ function ExperienceSection({ data, onChange }) {
       <h2>Experience</h2>
       {inputs.map((input) => (
         <InputField
+          key={input.title}
           {...input}
           value={data[input.inputKey]}
-          onChange={onChange}
+          onChange={(e) => onChange(e, input.inputKey)}
         />
       ))}
     </div>
